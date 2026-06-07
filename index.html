@@ -3,117 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>One Quick Question...</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(135deg,#1d1b4b,#432371);
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-}
-
-.card{
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(10px);
-    border-radius:25px;
-    padding:40px;
-    width:320px;
-    text-align:center;
-    color:white;
-    box-shadow:0 0 25px rgba(0,0,0,0.3);
-}
-
-h2{
-    margin-bottom:20px;
-}
-
-.buttons{
-    position:relative;
-    height:150px;
-}
-
-#yesBtn{
-    background:#ff1493;
-    color:white;
-    border:none;
-    padding:15px 35px;
-    border-radius:30px;
-    font-size:18px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-#noBtn{
-    position:absolute;
-    background:#555;
-    color:white;
-    border:none;
-    padding:15px 25px;
-    border-radius:30px;
-    cursor:pointer;
-    left:220px;
-    top:0;
-}
-
-#result{
-    display:none;
-}
-
-.heart{
-    font-size:60px;
-}
-</style>
+<title>One Important Question ❤️</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="card" id="question">
-    <div style="font-size:60px">🥺</div>
+<div class="hearts"></div>
+
+<div class="card" id="screen1">
+    <div class="emoji">🥺</div>
+    <h2>Hey...</h2>
+    <p>I have something I've been wanting to ask you.</p>
+    <button onclick="nextScreen('screen1','screen2')">Continue ❤️</button>
+</div>
+
+<div class="card hidden" id="screen2">
+    <div class="emoji">🌹</div>
+    <h2>Just So You Know...</h2>
+    <p>
+        You make my days brighter,
+        my smile bigger,
+        and my heart happier.
+    </p>
+    <button onclick="nextScreen('screen2','screen3')">Next ➜</button>
+</div>
+
+<div class="card hidden" id="screen3">
+    <div class="emoji">💌</div>
+    <h2>Roses are Red 🌹</h2>
+    <p>
+        Violets are blue 💜<br><br>
+        I've got one important question...<br><br>
+        Ready?
+    </p>
+    <button onclick="nextScreen('screen3','question')">I'm Ready ✨</button>
+</div>
+
+<div class="card hidden" id="question">
+    <div class="emoji">🥺</div>
     <h2>Will you go on a date with me?</h2>
 
-    <div class="buttons">
-        <button id="yesBtn">YES obviously 💖</button>
-        <button id="noBtn">No</button>
+    <p id="message">Choose carefully ❤️</p>
+
+    <div class="button-area">
+        <button id="yesBtn">YES ❤️</button>
+        <button id="noBtn">No 🙈</button>
     </div>
 </div>
 
-<div class="card" id="result">
-    <div class="heart">❤️</div>
-    <h2>Yay! I knew you'd say yes!</h2>
-    <p>Can't wait 😊</p>
+<div class="card hidden" id="success">
+    <div class="emoji">❤️❤️❤️</div>
+
+    <h1>YAAAY!!!</h1>
+
+    <p>
+        You just made me the happiest person alive 😊
+        <br><br>
+        Now we just need to decide:
+    </p>
+
+    <div class="options">
+        🍕 Food<br>
+        🎬 Movie<br>
+        ☕ Coffee<br>
+        🌅 Sunset Walk
+    </div>
 </div>
 
-<script>
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
-
-let yesSize = 18;
-
-function moveButton() {
-    const maxX = window.innerWidth - 120;
-    const maxY = window.innerHeight - 80;
-
-    noBtn.style.left = Math.random() * maxX + "px";
-    noBtn.style.top = Math.random() * maxY + "px";
-
-    yesSize += 5;
-    yesBtn.style.fontSize = yesSize + "px";
-}
-
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("click", moveButton);
-noBtn.addEventListener("touchstart", moveButton);
-
-yesBtn.addEventListener("click", () => {
-    document.getElementById("question").style.display = "none";
-    document.getElementById("result").style.display = "block";
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>

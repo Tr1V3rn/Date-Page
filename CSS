@@ -1,0 +1,115 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(-45deg,#6a11cb,#2575fc,#ff4d94,#ff758c);
+    background-size:400% 400%;
+    animation:bg 10s ease infinite;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.card{
+    width:90%;
+    max-width:400px;
+    text-align:center;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    color:white;
+    box-shadow:0 8px 30px rgba(0,0,0,0.25);
+    animation:fadeIn .5s;
+}
+
+.hidden{
+    display:none;
+}
+
+.emoji{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+h1,h2{
+    margin-bottom:15px;
+}
+
+p{
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    padding:14px 28px;
+    border-radius:30px;
+    font-size:18px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#yesBtn{
+    background:#ff1493;
+    color:white;
+}
+
+#noBtn{
+    background:#444;
+    color:white;
+    position:absolute;
+}
+
+.button-area{
+    position:relative;
+    height:200px;
+}
+
+.options{
+    font-size:22px;
+    line-height:2;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.heart{
+    position:absolute;
+    color:white;
+    animation:float 8s linear infinite;
+    opacity:.7;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-100px);
+    }
+}
